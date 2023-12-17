@@ -11,7 +11,9 @@ fi
 sudo cp /etc/nginx/sites-enabled/default nginx-sites-enabled_default.backup
 
 sed -i '/server_name _;/a \
-	        add_header X-Served-By \$hostname;\n' /etc/nginx/sites-available/default
+	        add_header X-Served-By \$hostname;\n' /etc/nginx/sites-enabled/default
+#Nginx on Linux makes use of symlinks in a smart way to enable site configurations.
+#👉🏼 "sites-available" folder holds all your site configurations. In the "sites-enabled" folder you create symlinks to the previous folder for the sites you wish to enable.
 
 # Restart Nginx service
 service nginx restart
