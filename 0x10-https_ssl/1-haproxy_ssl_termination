@@ -39,7 +39,7 @@ frontend http
         default_backend web-backend
 
 frontend www-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.iliasstaj.tech/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.iliasstaj.tech/www.iliasstaj.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend web-backend
 
